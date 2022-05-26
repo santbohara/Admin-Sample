@@ -1,0 +1,30 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "~/Areas/Identity/Pages/_AuthLayout.cshtml";
+}
+
+@Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+<form id="account" method="post">
+    <div class="form-group">
+        <i class="fas fa-envelope fa-xs"></i> <label asp-for="Input.Email"></label>
+        <input asp-for="Input.Email" class="form-control" />
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <i class="fas fa-key fa-xs"></i> <label asp-for="Input.Password"></label>
+        <input asp-for="Input.Password" class="form-control" />
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Log in</button>
+        <a id="forgot-password" class="float-right pt-2" asp-page="./ForgotPassword">Forgot your password?</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

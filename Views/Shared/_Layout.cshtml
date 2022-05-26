@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - iPOS</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" >
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/style.css" >
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+
+            <!-- Site Brand  -->
+            <div class="sidebar-header bg-transparent">
+                <a href="/"><h5>iPos</h5></a>
+            </div>
+
+            <!-- Main Navigation Content  -->
+            <partial name="_NavPartial.cshtml" />
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="p-0">
+
+            <!-- Content Sticky Header -->
+            <div class="head-nav d-flex justify-content-between border-bottom shadow-sm">
+
+                <div>
+                    <a href="#" id="sidebarCollapse">
+                        <i class="fas fa-align-left fa-lg"></i>
+                    </a>
+                </div>
+
+                <!-- Top Navigation -->
+                <div>
+                    <partial name="_LoginPartial.cshtml" />
+                </div>
+            </div>
+
+            <!-- Main Content  -->
+            <div style="padding:20px;">
+                @RenderBody()
+            </div>
+
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+</html>

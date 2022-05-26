@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using iPOS.Areas.Identity.Data
+
+@inject             SignInManager<iPOS.Areas.Identity.Data.Users> SignInManager
+@inject             UserManager<iPOS.Areas.Identity.Data.Users> UserManager
+
+<ul class="list-inline p-0">
+    <li class="list-inline-item p-0">
+        <a id="manage" class="nav-link p-0" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="fas fa-user"></i> @((await UserManager.GetUserAsync(User)).FirstName) </a>  
+    </li>
+    <li class="list-inline-item p-0">
+        <form id="logoutForm" class="form-inline p-0" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button id="logout" type="submit" class="btn btn-sm nav-link p-0" style="font-size:12px"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </form>
+    </li>
+</ul>
